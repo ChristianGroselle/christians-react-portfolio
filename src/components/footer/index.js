@@ -1,10 +1,15 @@
-import React from 'react'
-import './index.css'
+import React from "react";
+import { Navbar } from "react-bootstrap";
+import "./index.css";
 
 const footer = () => {
   return (
-    <div>footer</div>
-  )
-}
+    <>
+      <Navbar fixed="bottom" bg="light">
+        <Navbar.Text>© 2023 My Website</Navbar.Text>
+      </Navbar>
+    </>
+  );
+};
 
-export default footer
+export default footer;

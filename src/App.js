@@ -1,24 +1,18 @@
-import React from 'react'
-import Header from './components/header'
-import Nav from './components/nav'
-import About from './components/about'
-import Experience from './components/experience'
-import Portfolio from './components/portfolio'
-import Contact from './components/contact'
-import Footer from './components/footer'
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
+import About from "./components/About";
+import Project from "./components/Project";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <>
       <Header />
-      <Nav />
-      <About />
-      <Experience />
-      <Portfolio />
-      <Contact />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

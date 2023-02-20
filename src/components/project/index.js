@@ -1,10 +1,8 @@
-import React from 'react'
-import './index.css'
+import React from "react";
+import "./index.css";
 
-const portfolio = () => {
-  return (
-    <div>portfolio</div>
-  )
-}
+const Project = () => {
+  return <div>project</div>;
+};
 
-export default portfolio
+export default Project;
