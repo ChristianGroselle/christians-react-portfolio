@@ -6,63 +6,80 @@ const Contact = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [emailValid, setEmailValid] = useState(false);
+  const [nameValid, setNameValid] = useState(true);
+  const [emailValid, setEmailValid] = useState(true);
+  const [messageValid, setMessageValid] = useState(true);
+  const [formValid, setFormValid] = useState(false);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
+    setNameValid(e.target.value);
+    if (nameValid && emailValid && messageValid) {
+      setFormValid(true);
+    } else {
+      setFormValid(false);
+    }
+  };
+
+  const handleNameBlur = (e) => {
+    setNameValid(e.target.value.trim() !== "");
   };
 
   const handleEmailChange = (e) => {
     const emailRegex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/i;
     setEmail(e.target.value);
     setEmailValid(emailRegex.test(e.target.value));
+    if (
+      nameValid &&
+      name.trim() &&
+      emailValid &&
+      email.trim() &&
+      messageValid &&
+      message.trim()
+    ) {
+      setFormValid(true);
+    } else {
+      setFormValid(false);
+    }
+  };
+
+  const handleEmailBlur = (e) => {
+    setEmailValid(e.target.value.trim() !== "");
   };
 
   const handleMessageChange = (e) => {
     setMessage(e.target.value);
+    setMessageValid(e.target.value);
+    if (
+      nameValid &&
+      name.trim() &&
+      emailValid &&
+      email.trim() &&
+      messageValid &&
+      message.trim()
+    ) {
+      setFormValid(true);
+    } else {
+      setFormValid(false);
+    }
+  };
+
+  const handleMessageBlur = (e) => {
+    setMessageValid(e.target.value.trim() !== "");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    let isValid = true;
-    if (!name) {
-      alert("Please enter your name.");
-      isValid = false;
-    }
-    if (!email) {
-      alert("Please enter your email address.");
-      isValid = false;
-    } else if (
-      !/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/i.test(email)
-    ) {
-      alert("Please enter a valid email address.");
-      isValid = false;
-    }
-    if (!message) {
-      alert("Please enter a message.");
-      isValid = false;
-    }
-    if (isValid) {
-      // Submit the form
+    if (formValid) {
       form.submit();
     } else {
-      // Form is not valid, do nothing
       return;
     }
   };
 
   return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      style={{
-        transition: "background-color 0.5s ease",
-        backgroundColor: "rgba(255, 255, 255, 0.7)",
-      }}
-    >
+    <Modal {...props}>
       <Modal.Header
         closeButton
         style={{
@@ -70,7 +87,7 @@ const Contact = (props) => {
           color: "var(--text-color)",
         }}
       >
-        <Modal.Title id="contained-modal-title-vcenter">Contact Me</Modal.Title>
+        <Modal.Title>Contact Me</Modal.Title>
       </Modal.Header>
       <Modal.Body
         style={{
@@ -79,30 +96,21 @@ const Contact = (props) => {
         }}
       >
         <Form className="contact-form" onSubmit={handleSubmit}>
-          <Form.Group
-            className="mb-3"
-            controlId="formName"
-            style={{
-              backgroundColor: "var(--light-color)",
-              color: "var(--text-color)",
-            }}
-          >
+          <Form.Group controlId="formName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter your name"
               value={name}
               onChange={handleNameChange}
+              isInvalid={!nameValid}
+              onBlur={handleNameBlur}
             />
+            <Form.Control.Feedback type="invalid">
+              Please enter a name.
+            </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group
-            className="mb-3"
-            controlId="formEmail"
-            style={{
-              backgroundColor: "var(--light-color)",
-              color: "var(--text-color)",
-            }}
-          >
+          <Form.Group controlId="formEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
@@ -110,19 +118,13 @@ const Contact = (props) => {
               value={email}
               onChange={handleEmailChange}
               isInvalid={!emailValid && email !== ""}
+              onBlur={handleEmailBlur}
             />
             <Form.Control.Feedback type="invalid">
               Please enter a valid email address.
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group
-            className="mb-3"
-            controlId="formMessage"
-            style={{
-              backgroundColor: "var(--light-color)",
-              color: "var(--text-color)",
-            }}
-          >
+          <Form.Group controlId="formMessage">
             <Form.Label>Message</Form.Label>
             <Form.Control
               as="textarea"
@@ -130,13 +132,14 @@ const Contact = (props) => {
               placeholder="Enter your message"
               value={message}
               onChange={handleMessageChange}
+              isInvalid={!messageValid}
+              onBlur={handleMessageBlur}
             />
+            <Form.Control.Feedback type="invalid">
+              Please enter a message.
+            </Form.Control.Feedback>
           </Form.Group>
-          <Button
-            variant="primary"
-            type="submit"
-            className="d-flex justify-content-center mt-3 mx-auto"
-          >
+          <Button variant="primary" type="submit" disabled={!formValid}>
             Submit
           </Button>
         </Form>

@@ -4,25 +4,27 @@ import "./index.css";
 import About from "../About";
 import Portfolio from "../Portfolio";
 import Contact from "../Contact";
+import Resume from "../Resume";
 
 const Navigation = (props) => {
   const [active, setActive] = useState("about");
   const [open, setOpen] = useState(false);
-  const [isAboutActive, setIsAboutActive] = useState(true); // track whether the About component should be rendered
-  const [isPortfolioActive, setIsPortfolioActive] = useState(false); // track whether the Portfolio component should be rendered
-  const [isCollapsing, setIsCollapsing] = useState(false); // State to track if the component is in the process of collapsing
+  const [isAboutActive, setIsAboutActive] = useState(true);
+  const [isPortfolioActive, setIsPortfolioActive] = useState(false);
+  const [isResumeActive, setIsResumeActive] = useState(false);
+  const [isCollapsing, setIsCollapsing] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const aboutRef = useRef(null);
   const portfolioRef = useRef(null);
   const [modalShow, setModalShow] = useState(false);
 
   const handleToggle = () => {
-    setOpen(!open); // Toggles navbar open and closed
+    setOpen(!open);
   };
 
   const handleSelect = (key) => {
-    setActive(key); // Sets active component based on the key passed
-    setOpen(false); // Closes navbar after selecting a component
+    setActive(key);
+    setOpen(false);
   };
 
   const handleOnEnter = () => {
@@ -31,19 +33,20 @@ const Navigation = (props) => {
   };
 
   const handleOnExited = () => {
-    setIsCollapsing(false); // Set isCollapsing to false after the component has collapsed
+    setIsCollapsing(false);
     if (active === "about") {
       setIsAboutActive(true);
       setIsPortfolioActive(false);
-    } else {
+      setIsResumeActive(false);
+    } else if (active === "portfolio") {
       setIsAboutActive(false);
       setIsPortfolioActive(true);
+      setIsResumeActive(false);
+    } else if (active === "resume") {
+      setIsAboutActive(false);
+      setIsPortfolioActive(false);
+      setIsResumeActive(true);
     }
-  };
-
-  const toggleComponent = () => {
-    setActive(active === "about" ? "portfolio" : "about");
-    setIsCollapsing(true);
   };
 
   return (
@@ -67,6 +70,7 @@ const Navigation = (props) => {
             <Nav className="me-auto" activeKey={active} onSelect={handleSelect}>
               <Nav.Link eventKey="about">About me</Nav.Link>
               <Nav.Link eventKey="portfolio">Portfolio</Nav.Link>
+              <Nav.Link eventKey="resume">Resume</Nav.Link>
               <Nav.Link onClick={() => setModalShow(true)}>Contact</Nav.Link>
             </Nav>
             <Button variant="outline-light" onClick={props.onThemeToggle}>
@@ -96,6 +100,17 @@ const Navigation = (props) => {
           >
             <div ref={portfolioRef}>
               <Portfolio className={isOpen ? "open" : ""} />
+            </div>
+          </Fade>
+        )}
+        {isResumeActive && (
+          <Fade
+            in={active === "resume"}
+            onEnter={handleOnEnter}
+            onExited={handleOnExited}
+          >
+            <div>
+              <Resume className={isOpen ? "open" : ""} />
             </div>
           </Fade>
         )}

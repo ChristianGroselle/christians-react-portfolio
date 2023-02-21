@@ -17,5 +17,5 @@
 body {
     background: var(--light-color);
     color: var(--text-color);
-    min-height: 100vh;
+    margin-bottom: 75px;
   }

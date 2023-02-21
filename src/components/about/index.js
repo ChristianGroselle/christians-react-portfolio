@@ -5,37 +5,34 @@ import myImage from "../../assets/images/newerPhoto.jpg";
 const About = () => {
   return (
     <Container
+      className="marginTop"
       style={{
         backgroundColor: "var(--light-color)",
         color: "var(--text-color)",
       }}
     >
       <Row className="align-items-center">
-        <Col md={4}>
-          <Image src={myImage} alt="Profile Photo" roundedCircle fluid />
-        </Col>
-        <Col md={8}>
+        <Col md="10">
           <Card
             style={{
               backgroundColor: "var(--light-color)",
               color: "var(--text-color)",
             }}
           >
+            <Card.Img
+              variant="top"
+              src={myImage}
+              alt="Profile Photo"
+              roundedCircle
+              fluid
+            />
             <Card.Body>
               <Card.Title>About Me</Card.Title>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                rhoncus tellus sed elit interdum euismod. Aliquam non tellus
-                vitae velit placerat euismod sit amet sed risus. Morbi
-                ullamcorper, tortor sit amet viverra auctor, risus nunc
-                condimentum libero, nec suscipit neque nibh eu dolor. Sed
-                pharetra mauris in libero finibus, sit amet auctor risus
-                tincidunt. Duis lobortis est eget lectus convallis tincidunt.
-                Nullam dictum dolor eu vestibulum lobortis. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                curae; Donec lobortis, ipsum vel auctor eleifend, lectus odio
-                viverra elit, non fermentum ex erat ut nisi. In sit amet turpis
-                quam.
+              <Card.Text style={{ whiteSpace: "pre-wrap" }}>
+                I was born in Suwanee GA, but moved to Macon very early on in
+                life. In Macon I lived on a horse and cattle ranch. I have
+                always had an interests in programming, I started programming in
+                middle school
               </Card.Text>
             </Card.Body>
           </Card>
