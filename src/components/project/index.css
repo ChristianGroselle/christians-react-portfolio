@@ -1,0 +1,11 @@
+.mX {
+    max-width: 300px;
+}
+
+.card-title,
+.card-text {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
