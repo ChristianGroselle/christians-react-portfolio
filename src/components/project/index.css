@@ -1,7 +1,10 @@
 .mX {
     max-width: 300px;
 }
-
+a {
+    text-decoration: none;
+    color: black;
+  }
 .card-title,
 .card-text {
   max-width: 100%;

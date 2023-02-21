@@ -1,16 +1,26 @@
 import React from "react";
 import { Container, Row, Col, Image, Card } from "react-bootstrap";
-import myImage from "../../assets/images/oldPhoto.jpg";
+import myImage from "../../assets/images/newerPhoto.jpg";
 
 const About = () => {
   return (
-    <Container>
+    <Container
+      style={{
+        backgroundColor: "var(--light-color)",
+        color: "var(--text-color)",
+      }}
+    >
       <Row className="align-items-center">
         <Col md={4}>
           <Image src={myImage} alt="Profile Photo" roundedCircle fluid />
         </Col>
         <Col md={8}>
-          <Card>
+          <Card
+            style={{
+              backgroundColor: "var(--light-color)",
+              color: "var(--text-color)",
+            }}
+          >
             <Card.Body>
               <Card.Title>About Me</Card.Title>
               <Card.Text>

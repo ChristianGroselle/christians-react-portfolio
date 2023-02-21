@@ -1,10 +1,21 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --text-color: black;
+  }
+  
+  [data-theme="dark"] {
+    --primary-color: #90caf9;
+    --secondary-color: #c5cae9;
+    --light-color: #424242;
+    --dark-color: #ffffff;
+    --text-color: white;
+  }
 
-}
+body {
+    background: var(--light-color);
+    color: var(--text-color);
+    min-height: 100vh;
+  }
