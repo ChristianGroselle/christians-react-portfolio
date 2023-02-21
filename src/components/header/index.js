@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import Navigation from "../Navigation";
 
-const header = () => {
+const Header = () => {
   return (
     <>
       <header>
@@ -12,4 +12,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
