@@ -79,7 +79,12 @@ const Contact = (props) => {
   };
 
   return (
-    <Modal {...props}>
+    <Modal
+      {...props}
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.7)",
+      }}
+    >
       <Modal.Header
         closeButton
         style={{

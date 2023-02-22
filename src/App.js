@@ -18,7 +18,7 @@ const App = () => {
   };
   return (
     <div className="App" data-theme={theme}>
-      <Navigation
+      <Header
         theme={theme}
         onThemeToggle={() => {
           const html = document.documentElement;

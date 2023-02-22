@@ -19,20 +19,14 @@ const About = () => {
               color: "var(--text-color)",
             }}
           >
-            <Card.Img
-              variant="top"
-              src={myImage}
-              alt="Profile Photo"
-              roundedCircle
-              fluid
-            />
+            <Card.Img variant="top" src={myImage} alt="Profile Photo" />
             <Card.Body>
               <Card.Title>About Me</Card.Title>
               <Card.Text style={{ whiteSpace: "pre-wrap" }}>
                 I was born in Suwanee GA, but moved to Macon very early on in
                 life. In Macon I lived on a horse and cattle ranch. I have
                 always had an interests in programming, I started programming in
-                middle school
+                middle school.
               </Card.Text>
             </Card.Body>
           </Card>
