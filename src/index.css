@@ -1,15 +1,15 @@
 :root {
-    --primary-color: #007bff;
+    --primary-color: #BEBEBE ;
     --secondary-color: #6c757d;
-    --light-color: #f8f9fa;
+    --light-color: #F5F5F5  ;
     --dark-color: #343a40;
     --text-color: black;
   }
   
   [data-theme="dark"] {
-    --primary-color: #90caf9;
+    --primary-color: #E5E5E5 ;
     --secondary-color: #c5cae9;
-    --light-color: #424242;
+    --light-color: #545454;
     --dark-color: #ffffff;
     --text-color: white;
   }
