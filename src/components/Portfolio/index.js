@@ -8,6 +8,7 @@ import noteImage from "../../assets/images/note-taker.png";
 import weatherImage from "../../assets/images/weather-dashboard.png";
 import calendarImage from "../../assets/images/calendar.png";
 import passwordImage from "../../assets/images/password-generator.png";
+import fleaMarketFindsImg from "../../assets/images/fleaMarketFindsImg.png";
 
 const Portfolio = () => {
   return (
@@ -15,6 +16,14 @@ const Portfolio = () => {
       <Container bg="light">
         <h5>Portfolio</h5>
         <Row xs={1} sm={1} md={2} xl={3}>
+          <Col style={{ margin: "1rem 0" }} className="mx-auto">
+            <Project
+              imageSrc={fleaMarketFindsImg}
+              projectName="Flea Market Finds"
+              githubLink="https://github.com/ChristianGroselle/flea-market-finds"
+              deployLink="https://flea-market-finds.herokuapp.com/"
+            />
+          </Col>
           <Col style={{ margin: "1rem 0" }} className="mx-auto">
             <Project
               imageSrc={tvaraImage}
