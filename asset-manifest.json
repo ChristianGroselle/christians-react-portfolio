@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/christians-react-portfolio/static/css/main.b78ae80e.css",
-    "main.js": "/christians-react-portfolio/static/js/main.31ac6131.js",
+    "main.js": "/christians-react-portfolio/static/js/main.fda1d960.js",
     "static/media/tvara.png": "/christians-react-portfolio/static/media/tvara.35aea251d0acbebd6174.png",
     "static/media/abra.png": "/christians-react-portfolio/static/media/abra.07e622c64f7c4b216603.png",
+    "static/media/fleaMarketFindsImg.png": "/christians-react-portfolio/static/media/fleaMarketFindsImg.89a2a732546dc2501da5.png",
     "static/media/weather-dashboard.png": "/christians-react-portfolio/static/media/weather-dashboard.9f68fdac2bf93b3180f0.png",
     "static/media/newerPhoto.jpg": "/christians-react-portfolio/static/media/newerPhoto.62df59511636e2de8c30.jpg",
     "static/media/calendar.png": "/christians-react-portfolio/static/media/calendar.dbc6906d4ab0dba72754.png",
@@ -12,10 +13,10 @@
     "static/media/tempResume.pdf": "/christians-react-portfolio/static/media/tempResume.c22f1ab0e782d6d1b092.pdf",
     "index.html": "/christians-react-portfolio/index.html",
     "main.b78ae80e.css.map": "/christians-react-portfolio/static/css/main.b78ae80e.css.map",
-    "main.31ac6131.js.map": "/christians-react-portfolio/static/js/main.31ac6131.js.map"
+    "main.fda1d960.js.map": "/christians-react-portfolio/static/js/main.fda1d960.js.map"
   },
   "entrypoints": [
     "static/css/main.b78ae80e.css",
-    "static/js/main.31ac6131.js"
+    "static/js/main.fda1d960.js"
   ]
 }
